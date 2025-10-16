@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айнұр - 50 жас мерейтойы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fff9f0 0%, #ffe8d4 100%);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Орнаменты */
+        .ornament {
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ornament-1 {
+            top: 100px;
+            left: -30px;
+            font-size: 120px;
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .ornament-2 {
+            top: 300px;
+            right: -30px;
+            font-size: 100px;
+            animation: floatSlow 7s ease-in-out infinite 1s;
+        }
+
+        .ornament-3 {
+            top: 800px;
+            left: -20px;
+            font-size: 90px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .ornament-4 {
+            top: 1200px;
+            right: -25px;
+            font-size: 110px;
+            animation: floatSlow 8s ease-in-out infinite 2s;
+        }
+
+        .ornament-5 {
+            top: 1600px;
+            left: -35px;
+            font-size: 95px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .ornament-6 {
+            top: 2000px;
+            right: -20px;
+            font-size: 105px;
+            animation: floatSlow 6s ease-in-out infinite 1.5s;
+        }
+
+        .ornament-7 {
+            top: 2400px;
+            left: -25px;
+            font-size: 85px;
+            animation: rotate 25s linear infinite reverse;
+        }
+
+        .ornament-8 {
+            top: 2800px;
+            right: -30px;
+            font-size: 100px;
+            animation: pulse 5s ease-in-out infinite 1s;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #d4af37 0%, #c5a028 100%);
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '✨';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.2;
+            top: 20px;
+            left: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '🎊';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.2;
+            bottom: 20px;
+            right: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-name {
+            font-size: 56px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero-age {
+            font-size: 80px;
+            color: white;
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            margin: 25px 0;
+            letter-spacing: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            color: white;
+            margin-top: 15px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+
+        /* Invitation Section */
+        .invitation {
+            padding: 40px 25px;
+            text-align: center;
+            background: white;
+        }
+
+        .invitation-title {
+            font-size: 32px;
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .invitation-text {
+            font-size: 17px;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 20px;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guests-list {
+            font-size: 16px;
+            line-height: 2.2;
+            color: #c5a028;
+            margin: 25px 0 30px;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 15px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guest-item {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .special-message {
+            font-size: 16px;
+            color: #d4af37;
+            margin-top: 35px;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #fff9f0 0%, #ffe8d4 50%);
+            border-radius: 15px;
+            line-height: 2;
+            font-weight: 500;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Details Section */
+        .details {
+            background: linear-gradient(135deg, #fff9f0 0%, #ffe8d4 100%);
+            padding: 40px 25px;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.15);
+            border: 2px solid #d4af37;
+        }
+
+        .detail-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .detail-title {
+            font-size: 22px;
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .detail-content {
+            font-size: 17px;
+            color: #666;
+            line-height: 2;
+            font-weight: 500;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            display: none;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            padding: 40px 25px;
+            color: white;
+        }
+
+        .rsvp-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .rsvp-text {
+            font-size: 17px;
+            margin-bottom: 30px;
+            line-height: 2;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .rsvp-form {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            color: #d4af37;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #fff9f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .radio-option:hover {
+            background: #ffe8d4;
+            border-color: #d4af37;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #d4af37;
+        }
+
+        .radio-option label {
+            flex: 1;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .radio-option.selected {
+            background: #ffe8d4;
+            border-color: #d4af37;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #b8941f;
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.02);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            color: #d4af37;
+            font-size: 18px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff9f0;
+            padding: 30px 25px;
+            text-align: center;
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        .footer-icons {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(10px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.1); opacity: 0.25; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .slide-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .slide-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        /* Анимация при скролле */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Декоративные орнаменты -->
+    <div class="ornament ornament-1">🌟</div>
+    <div class="ornament ornament-2">✨</div>
+    <div class="ornament ornament-3">🎊</div>
+    <div class="ornament ornament-4">💫</div>
+    <div class="ornament ornament-5">⭐</div>
+    <div class="ornament ornament-6">🌙</div>
+    <div class="ornament ornament-7">🎉</div>
+    <div class="ornament ornament-8">✨</div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-name">Айнұр</div>
+            <div class="hero-age">50 жас</div>
+            <div class="hero-subtitle">мерейтойы</div>
+        </div>
+
+        <!-- Invitation Section -->
+        <div class="invitation animate-on-scroll">
+            <div class="invitation-title">Құрметті</div>
+            <div class="guests-list">
+                <span class="guest-item">ағайын-туыс, бауырлар,</span>
+                <span class="guest-item">құда-жекжат,</span>
+                <span class="guest-item">нағашы-жиен, бөлелер,</span>
+                <span class="guest-item">апа-жезде,</span>
+                <span class="guest-item">әріптестер, мен</span>
+                <span class="guest-item">дос-жарандар!</span>
+            </div>
+            <div class="invitation-text">
+                Сіздерді біздің аяулы жанымыз Айнұрдың<br>
+                50 жасқа толуына орай өткізілетін<br>
+                мерейтойға шақырамыз!
+            </div>
+            <div class="special-message">
+                Өмірдің алтын шағы - 50 жас!<br><br>
+                Бұл жасқа толған адам даналыққа,<br>
+                тәжірибеге және өмірлік парасатқа<br>
+                толы болады.<br><br>
+                Осы ерекше күнді бірге тойлайық!
+            </div>
+        </div>
+
+        <!-- Photo Section -->
+        <div class="photo-section animate-on-scroll">
+            <div class="photo-frame">
+                <div class="photo-inner">
+                    🎉✨
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details">
+            <div class="detail-card animate-on-scroll">
+                <div class="detail-icon">📅</div>
+                <div class="detail-title">Күні мен уақыты</div>
+                <div class="detail-content">
+                    13 қаңтар<br>
+                    Сәрсенбі, сағат 18:00
+                </div>
+            </div>
+
+            <div class="detail-card animate-on-scroll">
+                <div class="detail-icon">📍</div>
+                <div class="detail-title">Мекен-жайы</div>
+                <div class="detail-content">
+                    Ресторан "Инжир"<br>
+                    Астана қ., Арғанаты, 13
+                </div>
+            </div>
+
+            <div class="detail-card animate-on-scroll">
+                <div class="detail-icon">🎊</div>
+                <div class="detail-title">Маңызды</div>
+                <div class="detail-content">
+                    Сіздің қатысуыңыз -<br>
+                    біз үшін ең үлкен сыйлық!<br>
+                    Уақытында келуіңізді сұраймыз.
+                </div>
+            </div>
+        </div>
+
+        <!-- RSVP Section -->
+        <div class="rsvp">
+            <div class="rsvp-title">Қатысуды растау</div>
+            <div class="rsvp-text">
+                Орын резервациялау үшін<br>
+                анкетаны толтырыңыз
+            </div>
+            
+            <div class="rsvp-form" id="rsvpForm">
+                <form id="guestForm">
+                    <div class="form-group">
+                        <label class="form-label">Қатысу туралы</label>
+                        
+                        <div class="radio-option" onclick="selectOption(this)">
+                            <input type="radio" name="attendance" value="Әрине келемін" id="yes" required>
+                            <label for="yes">Әрине келемін</label>
+                        </div>
+                        
+                        <div class="radio-option" onclick="selectOption(this)">
+                            <input type="radio" name="attendance" value="Өкінішке орай келе алмаймын" id="no">
+                            <label for="no">Өкінішке орай келе алмаймын</label>
+                        </div>
+                        
+                        <div class="radio-option" onclick="selectOption(this)">
+                            <input type="radio" name="attendance" value="Жұбайыммен келемін" id="withSpouse">
+                            <label for="withSpouse">Жұбайыммен келемін</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="guestName">Атыңыз</label>
+                        <input type="text" id="guestName" class="input-field" placeholder="Толық атыңызды жазыңыз" required>
+                    </div>
+
+                    <button type="submit" class="submit-button">Жіберу</button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    ✅ Рахмет! Сіздің жауабыңыз қабылданды!
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-icons">🎉 🥂 🎊</div>
+            <p>Сіздердің келуіңіз - біздің бақытымыз!</p>
+            <p style="margin-top: 10px; font-style: italic;">Құрметпен, Айнұрдың отбасы</p>
+            <p style="margin-top: 15px; font-size: 12px; opacity: 0.7;">Мерекелік киіміңізбен келіңіз 🌟</p>
+        </div>
+    </div>
+
+    <script>
+        // Анимация при скролле
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Запуск при загрузке и скролле
+        window.addEventListener('load', handleScrollAnimation);
+        window.addEventListener('scroll', handleScrollAnimation);
+
+        // Выбор radio опции
+        function selectOption(element) {
+            const allOptions = document.querySelectorAll('.radio-option');
+            allOptions.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+        }
+
+        // Обработка формы
+        document.getElementById('guestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const attendance = document.querySelector('input[name="attendance"]:checked');
+            const name = document.getElementById('guestName').value;
+            
+            if (!attendance || !name.trim()) {
+                alert('Барлық өрістерді толтырыңыз!');
+                return;
+            }
+
+            const formData = {
+                name: name,
+                attendance: attendance.value,
+                timestamp: new Date().toLocaleString('kk-KZ')
+            };
+
+            // Сохраняем в память (в реальности отправили бы на сервер)
+            console.log('Форма данных:', formData);
+            
+            // Показываем сообщение об успехе
+            document.getElementById('guestForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            
+            // ЗДЕСЬ ОТПРАВКА ДАННЫХ:
+            // Вариант 1: Google Forms (замените URL)
+            // window.open('https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?entry.123=' + encodeURIComponent(name) + '&entry.456=' + encodeURIComponent(attendance.value));
+            
+            // Вариант 2: Telegram Bot
+            // sendToTelegram(formData);
+            
+            // Вариант 3: Email (требует backend)
+            // sendEmail(formData);
+        });
+
+        // Функция для отправки в Telegram (нужен Bot Token)
+        function sendToTelegram(data) {
+            const botToken = 'YOUR_BOT_TOKEN';
+            const chatId = 'YOUR_CHAT_ID';
+            const message = `🎉 Новый ответ на приглашение:\n\nИмя: ${data.name}\nОтвет: ${data.attendance}\nВремя: ${data.timestamp}`;
+            
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            });
+        }
+    </script>
+</body>
+</html>
